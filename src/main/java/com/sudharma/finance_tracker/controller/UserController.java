@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sudharma.finance_tracker.dto.UserResponse;
 import com.sudharma.finance_tracker.entity.User;
 import com.sudharma.finance_tracker.service.UserService;
 
@@ -22,7 +23,15 @@ public class UserController {
 
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
-    public User registerUser(@RequestBody User user) {
-        return userService.createUser(user);
+    public UserResponse registerUser(@RequestBody User user) {
+
+        User savedUser = userService.createUser(user);
+
+        return new UserResponse(
+                savedUser.getId(),
+                savedUser.getName(),
+                savedUser.getEmail(),
+                savedUser.getCreatedAt()
+        );
     }
 }
