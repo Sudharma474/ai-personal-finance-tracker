@@ -1,0 +1,13 @@
+[1mdiff --git a/src/main/java/com/sudharma/finance_tracker/config/SecurityConfig.java b/src/main/java/com/sudharma/finance_tracker/config/SecurityConfig.java[m
+[1mindex e664b6f..132c8cb 100644[m
+[1m--- a/src/main/java/com/sudharma/finance_tracker/config/SecurityConfig.java[m
+[1m+++ b/src/main/java/com/sudharma/finance_tracker/config/SecurityConfig.java[m
+[36m@@ -21,7 +21,7 @@[m [mpublic class SecurityConfig {[m
+                 .csrf(csrf -> csrf.disable())[m
+                 .authorizeHttpRequests(auth -> auth[m
+                 .requestMatchers("/api/users/register").permitAll()[m
+[31m-                .requestMatchers("/api/income", "/api/income/**").permitAll()[m
+[32m+[m[32m                .requestMatchers("/api/budgets", "/api/budgets/**").permitAll()[m
+                 .anyRequest().authenticated()[m
+                 );[m
+ [m

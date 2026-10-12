@@ -21,7 +21,6 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/users/register").permitAll()
-                .requestMatchers("/api/income", "/api/income/**").permitAll()
                 .anyRequest().authenticated()
                 );
 
